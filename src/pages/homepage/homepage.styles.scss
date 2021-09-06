@@ -1,0 +1,21 @@
+@use '../../styles/colors.styles';
+@use '../../styles/media-sizes.styles.scss';
+
+.homepage {
+  min-height: 78vh;
+  position: relative;
+  background-color: colors.$darkgrey;
+  }
+
+  @media screen and (min-width: media-sizes.$xxlarge) {
+    .homepage {
+        display: flex;
+        justify-content: space-around;
+        
+
+    }
+}
+
+
+  
+  

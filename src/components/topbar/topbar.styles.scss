@@ -1,0 +1,211 @@
+@use '../../styles/colors.styles';
+@use '../../styles/media-sizes.styles.scss';
+
+header li, header a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header--main-menu {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 10%;
+    height: 12vh;
+    background-color: #000000;
+    z-index: 2;
+
+
+    & li,
+    a {
+        color: #ffffff;
+        
+    }
+}
+
+ .home {
+    background-color: transparent;
+}
+
+.header--sales {
+    background-color: colors.$darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10%;
+    height: 5vh;
+
+    & li,
+    a {
+        color: #ffffff;
+    }
+}
+
+.header--contact {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10%;
+    height: 5vh;
+
+    & li,
+    a {
+        color: white;
+        font-size: 12px;
+    }
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links__with-icon *:nth-child(2) {
+    padding-left: 5px;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        color: colors.$lightbrown;
+    }
+}
+
+.toggle-button {
+    padding: 5px;
+    display: none;
+    background-color: colors.$darkbrown;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+
+    &:hover {
+        background-color: colors.$lightbrown;
+    }
+}
+
+.cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart__badge {
+    background-color: #000000;
+    border-radius: 25%;
+    position: absolute;
+    padding: 2px;
+    top: -14px;
+    right: -12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.current-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    & :hover {
+        color: colors.$lightbrown;
+    }    
+}
+
+.current-user__picture--small {
+    border-radius: 50%;
+    width: 30px; 
+}
+
+.dropdown__body{
+    background-color: #ffffff;
+    width: 12vh;
+    height: 15vh;
+    position: absolute;
+    top: 110px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+
+    & a, p {
+        color: #000000;
+        padding-top: 30px;
+
+    }
+}
+
+
+@media screen and (max-width: media-sizes.$medium) {
+
+    .header--contact {
+        padding: 2px;
+        height: 3vh;  
+    }
+
+    .header--main-menu {
+        padding: 5%;
+    }
+
+    .logo {
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: media-sizes.$small) {
+    .toggle-button{
+        display: inline;
+    }
+    .main-menu__items{
+        display: none;
+    }
+}
+
+@media screen and (max-width: media-sizes.$xsmall) {
+    li,
+    a,
+    button {
+        font-size: 10px;
+    }
+
+    .header--contact {
+        padding: 2px;
+        height: 3vh;
+    
+        & li,
+        a {
+            font-size: 10px;
+        }
+    }
+
+    .logo {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: media-sizes.$xxsmall) {
+    .header--contact {
+
+        & li,
+        a {
+            font-size: 7px;
+        }
+    }
+
+}

@@ -1,0 +1,146 @@
+@use '../../styles/media-sizes.styles.scss';
+@use '../../styles/colors.styles.scss';
+
+.carousel {
+    height: 88vh;
+    margin-top: -112px;
+    z-index: 1;
+    &  li, a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    border: 4px 0 solid #000000;
+    
+}
+
+.arrow-left {
+    position: absolute;
+    color: #ffffff;
+    top: 40%;
+    left: 10%;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 4rem;
+    user-select: none;
+}
+
+.arrow-right {
+    position: absolute;
+    color: #ffffff;
+    top: 40%;
+    right: 10%;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 4rem;
+    user-select: none;
+}
+
+.content {
+    position: absolute;
+    opacity: 65%;
+    height: 25vh;
+    width: 40vh;
+    top: 30%;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colors.$lightbrown;
+    text-align: center;
+    border-radius: 10%;
+    border: 2px solid black; 
+
+    .title {
+        padding: 20px 0;
+        font-size: 55px;
+    }
+
+    .subtitle, .subtitle_shop {
+        padding: 10px 5px;
+        font-size: 25px;
+    }
+
+    .subtitle_shop {
+        font-weight: bold;
+            a, li {
+                &:hover {
+                color: #ffffff;
+                cursor: pointer;
+                text-shadow: 2px 2px 5px #4a4036;
+            }
+
+        }
+    }
+}
+
+@media screen and (min-width: media-sizes.$xxlarge) {
+    .carousel {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: media-sizes.$large) {
+    .carousel {
+        height: 55vh;
+    }
+    .arrow-left {
+        top: 35%;
+    }
+    .arrow-right {
+        top: 35%;
+    }
+}
+
+@media screen and (max-width: media-sizes.$medium) {
+    .carousel {
+        height: 50vh;
+    }
+    .arrow-left {
+        top: 25%;
+        font-size: 2rem;
+    }
+    .arrow-right {
+        top: 25%;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: media-sizes.$small) {
+    .carousel {
+        height: 30vh;
+    }
+    .arrow-left {
+        top: 15%;
+        z-index: 10;
+        font-size: 2rem;
+    }
+    .arrow-right {
+        top: 15%;
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: media-sizes.$xsmall) {
+    .carousel {
+        height: 35vh;
+    }
+    .arrow-left {
+        top: 20%;
+        font-size: 1rem;
+    }
+    .arrow-right {
+        top: 20%;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,72 @@
+.menu-item {
+    height: 50vh;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 2%;
+    overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+
+        & .background-image {
+            transform: scale(1.1);
+            opacity: 100%;
+            transition: all 1.5s;
+        }
+
+        & .menu-content {
+            opacity: 1;
+
+            .add-to-cart {
+                opacity: 100%;
+                text-shadow: 2px 2px 5px #4a4036;
+                transition: opacity 1.5s;
+            }
+        }
+    }
+
+    .background-image {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        opacity: 70%;
+    }
+
+    .menu-content {
+        height: 90px;
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        background-color: white;
+        opacity: 0.7;
+        position: absolute;
+
+        & * {
+            padding: 2px;
+        }
+
+        .menu-title {
+            font-weight: bold;
+            margin: 0 6px 0;
+            font-size: 22px;
+            color: #4a4a4a;
+        }
+
+        .menu-subtitle {
+            font-weight: lighter;
+            font-size: 16px;
+
+        }
+
+        .add-to-cart {
+            opacity: 0%;
+        }
+    }
+}
