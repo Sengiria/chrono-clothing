@@ -5,6 +5,10 @@ import rootreducers from './root-reducer';
 
 const middleware = [logger]
 
+if(process.env.NODE_ENV === 'development'){
+    middleware.push(logger)
+}
+
 export const store = createStore(rootreducers, applyMiddleware(...middleware))
 
 export const persistor = persistStore(store)
