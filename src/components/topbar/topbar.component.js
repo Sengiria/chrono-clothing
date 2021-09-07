@@ -11,10 +11,7 @@ import { selectCurrentUser, selectUserHidden } from '../../redux/user/user.selec
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 import { toggleUserHidden } from "../../redux/user/user.actions";
 
-
-
 const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, location, cartHidden, userHidden }) => {
-
     return (
         <div>
             <header className="header--sales">
@@ -109,9 +106,7 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                                     null
                                     :
                                     <Cart />
-
                             }
-
                         </li>
                         <li>
                             <Link onClick={toggleCartHidden} className="cart" to="#">
@@ -124,7 +119,6 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                     </ul>
                 </nav>
             </header>
-
         </div>
     )
 }

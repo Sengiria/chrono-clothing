@@ -11,3 +11,9 @@ export const selectCurrent = createSelector(
     [selectCollection],
     (collection) => collection.current
 )
+
+export const selectShopData = createSelector(
+    [selectCollection],
+    (collection) => collection.shopData
+)
+
