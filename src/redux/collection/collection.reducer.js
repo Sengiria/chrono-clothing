@@ -12,27 +12,27 @@ const INITIAL_STATE = {
                     id: 1,
                     title: "Black Corset",
                     imageURL: "/shop/women/black-corset.jpg",
-                    price: 55.95
+                    price: 55
                 },{
                     id: 2,
                     title: "Brown Striped Dress",
                     imageURL: "/shop/women/brown-striped-dress.jpg",
-                    price: 72.99
+                    price: 72
                 },{
                     id: 3,
                     title: "Leather Vest",
                     imageURL: "/shop/women/leather-vest.jpg",
-                    price: 69.99
+                    price: 69
                 },{
                     id: 4,
                     title: "Beige Corset",
                     imageURL: "/shop/women/light-corset.jpg",
-                    price: 98.75
+                    price: 98
                 },{
                     id: 5,
                     title: "White Dress",
                     imageURL: "/shop/women/white-dress.jpg",
-                    price: 72.99
+                    price: 72
                 }
             ]
         },{
