@@ -66,7 +66,7 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                             <Link to="/shop">SHOP</Link>
                         </li>
                         <li>
-                            <Link to="/about">ABOUT</Link>
+                            <Link to="#">ABOUT</Link>
                         </li>
                     </ul>
                 </nav>
@@ -85,8 +85,7 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                                             <span className="current-user__name">{currentUser.displayName}  </span>
                                             {userHidden ?
                                                 null : (
-                                                    <div className="dropdown__body">
-                                                        <Link to="/profile">Profile</Link>
+                                                    <div className="dropdown__body">                                                    
                                                         <p onClick={() => { auth.signOut() }}>Sign out</p>
                                                     </div>
                                                 )

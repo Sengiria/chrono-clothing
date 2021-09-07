@@ -44,41 +44,117 @@ const INITIAL_STATE = {
                 {
                     id: 6,
                     title: "Black Corset",
-                    imageURL: "",
-                    price: 55.95
+                    imageURL: "/shop/men/vest-with-lapels.jpg",
+                    price: 55
                 },{
                     id: 7,
-                    title: "Brown Striped Dress",
-                    imageURL: "",
-                    price: 72.99
+                    title: "Black and gold vest",
+                    imageURL: "/shop/men/black-n-gold-vest.jpg",
+                    price: 62
                 },{
                     id: 8,
-                    title: "Leather Vest",
-                    imageURL: "",
-                    price: 69.99
+                    title: "Gothic waistcoat",
+                    imageURL: "/shop/men/gothic-waistcoat.jpg",
+                    price: 69
                 },{
                     id: 9,
-                    title: "Beige Corset",
-                    imageURL: "",
-                    price: 98.75
+                    title: "Brown jacket",
+                    imageURL: "/shop/men/brown-jacket.png",
+                    price: 55
                 },{
                     id: 10,
-                    title: "White Dress",
-                    imageURL: "",
-                    price: 72.99
+                    title: "White shirt",
+                    imageURL: "/shop/men/white-shirt.jpg",
+                    price: 34
+                },{
+                    id: 11,
+                    title: "Purple vest",
+                    imageURL: "/shop/men/purple-vest.jpg",
+                    price: 39
                 }
             ]
         },{
             id: 3,
             title: "Decoration",
             path: "/decoration",
-            imageURL: "/shop/decor_cropped.jpg"
+            imageURL: "/shop/decor_cropped.jpg",
+            items: [
+                {
+                    id: 12,
+                    title: "Book shelf",
+                    imageURL: "/shop/decorations/book-shelf.jpg",
+                    price: 34
+                },{
+                    id: 13,
+                    title: "Clock",
+                    imageURL: "/shop/decorations/clock.jpg",
+                    price: 30
+                },{
+                    id: 14,
+                    title: "Pressure Box",
+                    imageURL: "/shop/decorations/pressure-box.jpg",
+                    price: 32
+                },,{
+                    id: 15,
+                    title: "Owl Statue",
+                    imageURL: "/shop/decorations/owl-statue.jpg",
+                    price: 26
+                },{
+                    id: 16,
+                    title: "Wall Clock",
+                    imageURL: "/shop/decorations/wall-clock.jpg",
+                    price: 38
+                },{
+                    id: 17,
+                    title: "Wood and metal valve table",
+                    imageURL: "/shop/decorations/wood-and-metal-valve-table.jpg",
+                    price: 41
+                }
+            ]
     
         },{
             id: 4,
             title: "Accessories",
             path: "/accessories",
-            imageURL: "/shop/accessories_cropped.jpg"
+            imageURL: "/shop/accessories_cropped.jpg",
+            items: [
+                {
+                    id: 18,
+                    title: "Black Straps Bag",
+                    imageURL: "/shop/accessories/black-straps-bag.jpg",
+                    price: 58
+                },{
+                    id: 19,
+                    title: "Brown Hat",
+                    imageURL: "/shop/accessories/brown-hat.jpg",
+                    price: 48
+                },{
+                    id: 20,
+                    title: "Gears Necklace",
+                    imageURL: "/shop/accessories/gears-necklace.jpg",
+                    price: 14
+                },{
+                    id: 21,
+                    title: "Handwarmers",
+                    imageURL: "/shop/accessories/handwarmers.jpg",
+                    price: 22
+                },{
+                    id: 22,
+                    title: "Hat with clock",
+                    imageURL: "/shop/accessories/hat-with-clock.jpg",
+                    price: 69
+                },{
+                    id: 23,
+                    title: "Multi lens googles",
+                    imageURL: "/shop/accessories/multi-lens-googles.jpg",
+                    price: 35
+                },{
+                    id: 24,
+                    title: "Skeleton watch",
+                    imageURL: "/shop/accessories/skeleton-watch.jpg",
+                    price: 37
+                },
+            ]
     
         }
     ],

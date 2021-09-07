@@ -1,11 +1,12 @@
 .menu-item {
     height: 50vh;
-    width: 20%;
+    width: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    margin: 2%;
+    margin: 2vw;
+
     overflow: hidden;
 
     &:hover {

@@ -23,11 +23,6 @@ const Carousel = ({ nextSlide, prevSlide, collectionItems, current }) => {
                     <div key={id} className={current === id ? "slide active" : "slide"}
                         style={{ backgroundImage: `url(${imageUrl})` }}
                     >
-                        <div className="content">
-                            <h1 className="title">{title}</h1>
-                            <span className="subtitle">{desc}</span>
-                            <span className="subtitle_shop"><Link to="/shop">SHOP NOW</Link></span>
-                        </div>
                     </div>
 
                 )

@@ -7,7 +7,6 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import React from 'react';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
-import Profile from './pages/profile/profile.component';
 import Shop from './pages/shop/shop.component';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -58,12 +57,7 @@ class App extends React.Component {
           :
           (<SignInPage />)
         } />
-        <Route path="/profile"
-        render={() => this.props.currentUser ?
-        (<Profile />)
-      :
-        (<Redirect to="/" />)} 
-        />
+
 
         </Switch>
       </div>
