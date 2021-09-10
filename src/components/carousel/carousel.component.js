@@ -1,17 +1,23 @@
 import React, { useEffect } from 'react';
 import './carousel.styles.scss';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { nextSlide, prevSlide } from '../../redux/collection/collection.actions';
+import { nextSlide, prevSlide, updateCarousel } from '../../redux/collection/collection.actions';
 import { createStructuredSelector } from 'reselect';
-import { selectCollectionItems, selectCurrent } from '../../redux/collection/collection.selectors';
+import { firestore } from '../../firebase/firebase.utils';
+import { convertCarouselSnapshotToMap } from '../../firebase/firebase.utils';
+import { selectCarousel, selectCurrent } from '../../redux/collection/collection.selectors';
 
-const Carousel = ({ nextSlide, prevSlide, collectionItems, current }) => {
+const Carousel = ({ nextSlide, prevSlide, carousel, current, updateCarousel }) => {
 
     useEffect(() => {
-        const handleAutoplay = setInterval(nextSlide, 3000);
-        return () => clearInterval(handleAutoplay);
+        const carouselRef = firestore.collection('carousel')
+        carouselRef.onSnapshot(async snapshot => {
+            const carouselMap = convertCarouselSnapshotToMap(snapshot)
+            updateCarousel(carouselMap)
+        })
+       /* const handleAutoplay = setInterval(nextSlide, 3000);
+        return () => clearInterval(handleAutoplay);*/
     }, []);
 
     return (
@@ -19,28 +25,29 @@ const Carousel = ({ nextSlide, prevSlide, collectionItems, current }) => {
             <FaArrowLeft className="arrow-left" onClick={prevSlide} />
             <FaArrowRight className="arrow-right" onClick={nextSlide} />
             {
-                collectionItems.map(({ id, title, desc, imageUrl }) => (
+                carousel.map(({ id, title, desc, imageUrl }) => (
                     <div key={id} className={current === id ? "slide active" : "slide"}
                         style={{ backgroundImage: `url(${imageUrl})` }}
                     >
                     </div>
-
                 )
                 )
             }
+            
         </div>
     );
 }
 
 
 const mapStateToProps = createStructuredSelector({
-    collectionItems: selectCollectionItems,
+    carousel: selectCarousel,
     current: selectCurrent
 })
 
 const mapDispatchToProps = dispatch => ({
     nextSlide: () => dispatch(nextSlide()),
-    prevSlide: () => dispatch(prevSlide())
+    prevSlide: () => dispatch(prevSlide()),
+    updateCarousel: carouselMap => dispatch(updateCarousel(carouselMap))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Carousel);

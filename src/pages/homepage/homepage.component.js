@@ -1,12 +1,13 @@
 import React from 'react';
-import './homepage.styles.scss';
+
 import Carousel from '../../components/carousel/carousel.component';
+import { HomePageContainer } from './homepage.styles';
 
 
 const HomePage = () => (
-    <div className="homepage">
+    <HomePageContainer>
            <Carousel />
-    </div>
+    </HomePageContainer>
 )
 
 export default HomePage;

@@ -15,7 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user: userReducer,
     cart: cartReducer,
-    collection: collectionReducer
+    shop: collectionReducer
 })
 
 export default persistReducer(persistConfig, rootReducer)

@@ -1,19 +1,30 @@
 import { createSelector } from "reselect";
 
-const selectCollection = state => state.collection;
+const selectShop = state => state.shop;
 
-export const selectCollectionItems = createSelector(
-    [selectCollection],
-    (collection) => collection.collectionItems
+export const selectCarousel = createSelector(
+    [selectShop],
+    (shop) => shop.carousel ? 
+    Object.keys(shop.carousel).map(key => shop.carousel[key])
+    :
+    []
 )
 
 export const selectCurrent = createSelector(
-    [selectCollection],
-    (collection) => collection.current
+    [selectShop],
+    (shop) => shop.current
 )
 
-export const selectShopData = createSelector(
-    [selectCollection],
-    (collection) => collection.shopData
+export const selectCollections = createSelector(
+    [selectShop],
+    (shop) => shop.collections ? shop.collections : []
+)
+
+export const selectCollection = createSelector(
+    [selectCollections],
+    (collections) => collections ? 
+    Object.keys(collections).map(key => collections[key])
+    :
+    []
 )
 

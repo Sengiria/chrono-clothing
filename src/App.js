@@ -10,7 +10,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import Shop from './pages/shop/shop.component';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import CheckoutPage from './pages/checkout/checkout.component'
+import CheckoutPage from './pages/checkout/checkout.component';
 
 class App extends React.Component {
 
@@ -26,15 +26,18 @@ class App extends React.Component {
         userRef.onSnapshot(snapShot => {
 
           setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
+            id: snapShot.id,
+            ...snapShot.data()
           })
-
         })
       }
       else {
         setCurrentUser(userAuth)
-      }
+
+}
+
+     
+
     })
   }
 
@@ -48,15 +51,15 @@ class App extends React.Component {
         <Topbar />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/shop" component={Shop}/>
-          <Route exact path="/shop/:id" component={Shop}/>
-          <Route exact path="/checkout" component={CheckoutPage}/>
-          <Route exact path="/signin" render={() => 
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/shop/:id" component={Shop} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route exact path="/signin" render={() =>
             this.props.currentUser ?
-          (<Redirect to="/" />)
-          :
-          (<SignInPage />)
-        } />
+              (<Redirect to="/" />)
+              :
+              (<SignInPage />)
+          } />
 
 
         </Switch>
@@ -67,7 +70,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({

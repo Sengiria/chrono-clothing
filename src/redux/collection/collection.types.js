@@ -1,6 +1,8 @@
 const CollectionActionTypes = {
 NEXT_SLIDE: 'NEXT_SLIDE',
-PREV_SLIDE: 'PREV_SLIDE'
+PREV_SLIDE: 'PREV_SLIDE',
+UPDATE_COLLECTIONS: 'UPDATE_COLLECTIONS',
+UPDATE_CAROUSEL: 'UPDATE_CAROUSEL'
 }
 
 export default CollectionActionTypes;

@@ -7,3 +7,13 @@ export const nextSlide = () => ({
 export const prevSlide = () => ({
     type: CollectionActionTypes.PREV_SLIDE
 })
+
+export const updateCollections = (collectionsMap) => ({
+    type: CollectionActionTypes.UPDATE_COLLECTIONS,
+    payload: collectionsMap
+})
+
+export const updateCarousel = (carouselMap) => ({
+    type: CollectionActionTypes.UPDATE_CAROUSEL,
+    payload: carouselMap
+})
