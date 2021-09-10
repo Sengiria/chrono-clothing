@@ -26,7 +26,7 @@ const Shop = ({collections, updateCollections}) => {
 
     const {id} = useParams();
     const shop = id ? collections[id].items : Object.keys(collections).map(key => collections[key])
-
+    console.log(shop)
 
     return ( 
     <div>
