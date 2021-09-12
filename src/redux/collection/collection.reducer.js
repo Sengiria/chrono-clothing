@@ -13,19 +13,22 @@ const collectionReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 current:
-                    state.current === state.carousel.length ?
-                        1
-                        :
-                        state.current + 1
+                state.current === 3 ?
+                1
+                :
+                state.current + 1     
+
             }
         case CollectionActionTypes.PREV_SLIDE:
             return {
                 ...state,
                 current:
                     state.current === 1 ?
-                        1
-                        :
-                        state.carousel.length
+                    3
+                    :
+                    state.current - 1 
+                        
+                        
             }
         case CollectionActionTypes.UPDATE_COLLECTIONS:
             return {

@@ -17,6 +17,8 @@ const Carousel = ({ nextSlide, prevSlide, carousel, current, updateCarousel }) =
             const carouselMap = convertCarouselSnapshotToMap(snapshot)
             updateCarousel(carouselMap)
         })
+
+        console.log(carousel.length)
        /* const handleAutoplay = setInterval(nextSlide, 3000);
         return () => clearInterval(handleAutoplay);*/
     }, []);
