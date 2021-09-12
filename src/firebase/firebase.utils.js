@@ -79,10 +79,11 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 
 export const convertCarouselSnapshotToMap = (carousel) => {
   const transformedCarousel = carousel.docs.map(doc => {
-    const {title, imageUrl, desc} = doc.data()
+    const {title, imageUrl, desc, pos} = doc.data()
 
     return {
       title,
+      pos,
       imageUrl,
       id: doc.id,
       desc

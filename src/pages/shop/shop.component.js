@@ -13,15 +13,18 @@ const ShopPreviewWithSpinner = WithSpinner(ShopPreview)
 
 const Shop = ({collections, updateCollections}) => {
     const [loading, setLoading] = useState(true)
-    let unsubscribeFromSnapShot = null
 
     useEffect(()=>{
         const collectionRef = firestore.collection('collections')
-        unsubscribeFromSnapShot = collectionRef.onSnapshot(async snapshot => {
-            const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-            updateCollections(collectionsMap);
-            setLoading(false)
-        })
+
+        collectionRef.get().then(
+            snapshot => {
+                const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
+                updateCollections(collectionsMap);
+                setLoading(false)
+            }
+        )
+        
     }, [])
 
     const {id} = useParams();

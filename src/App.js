@@ -35,9 +35,6 @@ class App extends React.Component {
         setCurrentUser(userAuth)
 
 }
-
-     
-
     })
   }
 
@@ -46,6 +43,8 @@ class App extends React.Component {
   }
 
   render() {
+    //const { pathname } = useLocation();
+    //<Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} />
     return (
       <div className="App">
         <Topbar />
@@ -60,6 +59,7 @@ class App extends React.Component {
               :
               (<SignInPage />)
           } />
+          
 
 
         </Switch>

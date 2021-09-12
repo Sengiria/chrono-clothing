@@ -12,7 +12,8 @@ const Carousel = ({ nextSlide, prevSlide, carousel, current, updateCarousel }) =
 
     useEffect(() => {
         const carouselRef = firestore.collection('carousel')
-        carouselRef.onSnapshot(async snapshot => {
+
+        carouselRef.get().then(snapshot => {
             const carouselMap = convertCarouselSnapshotToMap(snapshot)
             updateCarousel(carouselMap)
         })
@@ -25,11 +26,11 @@ const Carousel = ({ nextSlide, prevSlide, carousel, current, updateCarousel }) =
             <FaArrowLeft className="arrow-left" onClick={prevSlide} />
             <FaArrowRight className="arrow-right" onClick={nextSlide} />
             {
-                carousel.map(({ id, title, desc, imageUrl }) => (
-                    <div key={id} className={current === id ? "slide active" : "slide"}
-                        style={{ backgroundImage: `url(${imageUrl})` }}
-                    >
-                    </div>
+                carousel.map(({ id, title, pos, desc, imageUrl }) => (
+                    <div key={id} className={current === pos ? "slide active" : "slide"}
+                    style={{ backgroundImage: `url(${imageUrl})` }}
+                />
+                    
                 )
                 )
             }
