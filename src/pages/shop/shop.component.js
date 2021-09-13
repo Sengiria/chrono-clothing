@@ -2,50 +2,42 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { selectCollections } from '../../redux/collection/collection.selectors';
-import { firestore } from '../../firebase/firebase.utils';
-import { convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
-import { updateCollections } from '../../redux/collection/collection.actions';
+import { selectCollections, SelectIsCollectionFetching, selectIsCollectionsLoaded } from '../../redux/collection/collection.selectors';
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 import ShopPreview from '../../components/shop-preview/shop-preview.component';
+import { fetchCollectionsStartAsync } from '../../redux/collection/collection.actions';
+import { ShopContainer } from './shop.styles';
 
 const ShopPreviewWithSpinner = WithSpinner(ShopPreview)
 
-const Shop = ({collections, updateCollections}) => {
-    const [loading, setLoading] = useState(true)
+const Shop = ({collections, collection, fetchCollectionsStartAsync, isCollectionFetching, isCollectionLoaded}) => {
 
     useEffect(()=>{
-        const collectionRef = firestore.collection('collections')
-
-        collectionRef.get().then(
-            snapshot => {
-                const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-                updateCollections(collectionsMap);
-                setLoading(false)
-            }
-        )
-        
+        fetchCollectionsStartAsync()  
     }, [])
 
     const {id} = useParams();
-    const shop = id ? collections[id].items : Object.keys(collections).map(key => collections[key])
-    console.log(shop)
+    const shop = id ? collections[id] : Object.keys(collections).map(key => collections[key])
+    
 
     return ( 
-    <div>
+    <ShopContainer>
         {
-            <ShopPreviewWithSpinner shopArray={shop} isLoading={loading}/>
+            <ShopPreviewWithSpinner shopArray={shop} isLoading={!isCollectionLoaded}/>
         }
-    </div>
+    </ShopContainer>
  )
 } 
 
 const mapStateToProps = createStructuredSelector ({
-    collections: selectCollections
+    collections: selectCollections,
+    collection: selectCollections,
+    isCollectionFetching: SelectIsCollectionFetching,
+    isCollectionLoaded: selectIsCollectionsLoaded
 })
 
 const mapDispatchToProps = dispatch => ({
-    updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap)) 
+    fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
 })
  
 export default connect(mapStateToProps, mapDispatchToProps)(Shop);

@@ -118,6 +118,8 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                     </ul>
                 </nav>
             </header>
+        
+            
         </div>
     )
 }

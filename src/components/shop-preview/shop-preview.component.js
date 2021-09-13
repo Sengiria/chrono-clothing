@@ -3,11 +3,11 @@ import MenuItem from '../menu-item/menu-item.component';
 import { ShopContainer } from './shop-preview.styles';
 
 const ShopPreview = ({shopArray}) => {
-    console.log(shopArray.map((item)=> item))
+    const shopData = shopArray.items ? shopArray.items : shopArray
     return ( 
         <ShopContainer>
         {
-        shopArray.map((item) => (
+        shopData.map((item) => (
             <MenuItem key={item.id} item={item} />
         ))
         }
