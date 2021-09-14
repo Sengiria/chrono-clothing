@@ -1,25 +1,25 @@
-import CollectionActionTypes from './collection.types';
+import ShopActionTypes from './shop.types';
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
 export const nextSlide = () => ({
-    type: CollectionActionTypes.NEXT_SLIDE
+    type: ShopActionTypes.NEXT_SLIDE
 })
 
 export const prevSlide = () => ({
-    type: CollectionActionTypes.PREV_SLIDE
+    type: ShopActionTypes.PREV_SLIDE
 })
 
 export const fetchCollectionsStart = () => ({
-    type: CollectionActionTypes.FETCH_COLLECTIONS_START
+    type: ShopActionTypes.FETCH_COLLECTIONS_START
 })
 
 export const fetchCollectionsSuccess = collectionsMap => ({
-    type: CollectionActionTypes.FETCH_COLLECTIONS_SUCCESS,
+    type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
     payload: collectionsMap
 })
 
 export const fetchCollectionsFailure = errorMessage => ({
-    type: CollectionActionTypes.fetchCollectionsFailure,
+    type: ShopActionTypes.fetchCollectionsFailure,
     payload: errorMessage
 })
 
@@ -37,7 +37,7 @@ export const fetchCollectionsStartAsync = () => {
 }
 
 export const updateCarousel = (carouselMap) => ({
-    type: CollectionActionTypes.UPDATE_CAROUSEL,
+    type: ShopActionTypes.UPDATE_CAROUSEL,
     payload: carouselMap
 })
 

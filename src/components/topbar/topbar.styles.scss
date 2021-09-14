@@ -200,11 +200,18 @@ header li, header a {
 }
 
 @media screen and (max-width: media-sizes.$xxsmall) {
+    .header--sales {
+
+     & li,
+        a {
+            font-size: 12px;
+        }
+    }
     .header--contact {
 
         & li,
         a {
-            font-size: 7px;
+            font-size: 10px;
         }
     }
 

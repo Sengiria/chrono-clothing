@@ -1,4 +1,4 @@
-import CollectionActionTypes from './collection.types';
+import ShopActionTypes from './shop.types';
 
 const INITIAL_STATE = {
     collections: null,
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 
 const collectionReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CollectionActionTypes.NEXT_SLIDE:
+        case ShopActionTypes.NEXT_SLIDE:
             return {
                 ...state,
                 current:
@@ -19,7 +19,7 @@ const collectionReducer = (state = INITIAL_STATE, action) => {
                         :
                         state.current + 1
             }
-        case CollectionActionTypes.PREV_SLIDE:
+        case ShopActionTypes.PREV_SLIDE:
             return {
                 ...state,
                 current:
@@ -29,24 +29,24 @@ const collectionReducer = (state = INITIAL_STATE, action) => {
                         state.current - 1
 
             }
-        case CollectionActionTypes.FETCH_COLLECTIONS_START:
+        case ShopActionTypes.FETCH_COLLECTIONS_START:
             return {
                 ...state,
                 isFetching: true
             }
-        case CollectionActionTypes.FETCH_COLLECTIONS_SUCCESS:
+        case ShopActionTypes.FETCH_COLLECTIONS_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 collections: action.payload
             }
-        case CollectionActionTypes.FETCH_COLLECTIONS_FAILURE:
+        case ShopActionTypes.FETCH_COLLECTIONS_FAILURE:
             return {
                 ...state,
                 isFetching: false,
                 errorMessage: action.payload
             }
-        case CollectionActionTypes.UPDATE_CAROUSEL:
+        case ShopActionTypes.UPDATE_CAROUSEL:
             return {
                 ...state,
                 carousel: action.payload

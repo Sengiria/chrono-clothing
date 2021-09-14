@@ -9,9 +9,9 @@ import { connect } from 'react-redux';
 import { selectCartHidden, selectCartItemsCount } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser, selectUserHidden } from '../../redux/user/user.selectors';
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
-import { toggleUserHidden } from "../../redux/user/user.actions";
+import { toggleUserHidden, signOutStart } from "../../redux/user/user.actions";
 
-const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, location, cartHidden, userHidden }) => {
+const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, location, cartHidden, userHidden, signOutStart }) => {
     return (
         <div>
             <header className="header--sales">
@@ -76,17 +76,17 @@ const Topbar = ({ toggleCartHidden, toggleUserHidden, currentUser, quantity, loc
                             {
                                 currentUser ?
                                     (
-                                        <div className="current-user" onClick={toggleUserHidden}>
+                                        <div className="current-user" onClick={ toggleUserHidden }>
                                             {
                                                 currentUser.photoURL ?
-                                                    <img className="current-user__picture--small" alt="profile" src={currentUser.photoURL} />
+                                                    <img className="current-user__picture--small" alt="profile" src={ currentUser.photoURL } />
                                                     : <FaUserAlt />
                                             }
-                                            <span className="current-user__name">{currentUser.displayName}  </span>
+                                            <span className="current-user__name">{ currentUser.displayName }  </span>
                                             {userHidden ?
                                                 null : (
                                                     <div className="dropdown__body">                                                    
-                                                        <p onClick={() => { auth.signOut() }}>Sign out</p>
+                                                        <p onClick={ signOutStart }>Sign out</p>
                                                     </div>
                                                 )
                                             }
@@ -134,7 +134,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden()),
-    toggleUserHidden: () => dispatch(toggleUserHidden())
+    toggleUserHidden: () => dispatch(toggleUserHidden()),
+    signOutStart: () => dispatch(signOutStart())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Topbar));

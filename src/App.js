@@ -3,39 +3,22 @@ import Topbar from './components/topbar/topbar.component';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component';
 import SignInPage from './pages/sign-in/sign-in-page.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import React from 'react';
 import { connect } from 'react-redux';
-import { setCurrentUser } from './redux/user/user.actions';
 import Shop from './pages/shop/shop.component';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import CheckoutPage from './pages/checkout/checkout.component';
+import { checkUserSession } from './redux/user/user.actions';
 
 class App extends React.Component {
 
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    const { checkUserSession } = this.props
+    checkUserSession()
 
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth)
-
-        userRef.onSnapshot(snapShot => {
-
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          })
-        })
-      }
-      else {
-        setCurrentUser(userAuth)
-
-}
-    })
   }
 
   componentWillUnmount() {
@@ -59,7 +42,7 @@ class App extends React.Component {
               :
               (<SignInPage />)
           } />
-          
+
 
 
         </Switch>
@@ -74,7 +57,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  checkUserSession: () => dispatch(checkUserSession())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
